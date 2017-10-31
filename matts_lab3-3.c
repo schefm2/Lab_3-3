@@ -34,10 +34,10 @@ unsigned int SERVO_PW = 2825;	//PW that is allowed to change based on compass re
 unsigned char h_count = 0;			//Keeps track of how many PCA interrupts occurred (resets at value of 2 or greater)
 unsigned char read_counter = 0;		//Keeps track of how many compass reads have occurred
 unsigned char new_heading = 0;		//Flag used to keep 40 ms between compass readings
-unsigned int desired_heading = 900;	//Arbitrary starting heading, will change depending on program
+unsigned int desired_heading = 0;	//Arbitrary starting heading, will change depending on program
 unsigned int heading = 0;			//Stores the value of 0 to 3599 returned by the electronic compass
 unsigned char Data[2];
-int error;
+signed int error;
 //-----------------------------------------------------------------------------
 // Main Function
 //-----------------------------------------------------------------------------
@@ -151,6 +151,7 @@ void Read_Heading()
 	{
 		read_counter = 0;
 		printf("Compass heading is:%d\r\n", heading);
+		printf("The error value is %d\r\n", error);
 	}
 
 }
@@ -173,7 +174,7 @@ void Set_PW()
 		//Waits until the slide switch is turned back off
 		while(SS);
 	}
-	error = (int)desired_heading - heading;	//Should allow error values between 3599 and -3599
+	error = (signed int)desired_heading - heading;	//Should allow error values between 3599 and -3599
 	/*
 	if (error > 1800 || error < -1800)	//If the error is greater than 180 degrees in either direction
 	{
@@ -182,11 +183,21 @@ void Set_PW()
 	}
 	*/
 
+	//If the error is greater than +- 180 degrees, then error is set to explementary angle of original error
 	if (error > 1800)
-		error = 3599 - error;
+		error = error - 3599;
 	if (error < -1800)
-		error = -3599 - error;
+		error = 3599 + error;
+
 	SERVO_PW = .4*(error) + PW_CENTER;	//Should limit the change from PW_CENTER to 750
+
+	//Additional precaution: if SERVO_PW somehow exceeds the limits set in Lab 3-1,
+	//then SERVO_PW is set to corresponding endpoint of PW range [PW_LEFT, PW_RIGHT]
+	if (SERVO_PW > PW_RIGHT)
+		SERVO_PW = PW_RIGHT;
+	if (SERVO_PW < PW_LEFT)
+		SERVO_PW = PW_LEFT;
+
 
 	//Sets CCM value that switches CEX to high; here it is set to a PW determined
 	//by the control algorithm
