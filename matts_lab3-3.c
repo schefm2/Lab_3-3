@@ -25,9 +25,9 @@ unsigned int Read_Compass(void);
 //-----------------------------------------------------------------------------
 __sbit __at 0xB7 SS;			//Slide switch configured for P3.7 (Pin 32 on EVB)
 
-unsigned int PW_CENTER = 2825;	//
-unsigned int PW_LEFT = 2395;	//
-unsigned int PW_RIGHT = 3185;	//
+unsigned int PW_CENTER = 2825;	//Estimated center pulse width, used when SS is off
+unsigned int PW_LEFT = 2395;	//Maximum left pulse width
+unsigned int PW_RIGHT = 3185;	//Maximum right pulse width
 unsigned int SERVO_PW = 2825;	//PW that is allowed to change based on compass reading
 
 //Variables initialized to 0 unless specified otherwise
@@ -36,8 +36,8 @@ unsigned char read_counter = 0;		//Keeps track of how many compass reads have oc
 unsigned char new_heading = 0;		//Flag used to keep 40 ms between compass readings
 unsigned int desired_heading = 0;	//Arbitrary starting heading, will change depending on program
 unsigned int heading = 0;			//Stores the value of 0 to 3599 returned by the electronic compass
-unsigned char Data[2];
-signed int error;
+unsigned char Data[2];				//Array for reading data from slave registers
+signed int error;					//Difference between desired and actual heading
 //-----------------------------------------------------------------------------
 // Main Function
 //-----------------------------------------------------------------------------
@@ -117,7 +117,10 @@ void PCA_Init(void)
 // PCA_ISR
 //-----------------------------------------------------------------------------
 //
-// Interrupt Service Routine for Programmable Counter Array Overflow Interrupt
+// Interrupt Service Routine for Programmable Counter Array Overflow Interrupt;
+// compass reads only occur every 40 ms because the compass recalculates heading
+// every 33.3 ms, so to be safe and keep the code simple, this is increased to
+// 40 ms per read to prevent duplicate reads
 //
 void PCA_ISR(void) __interrupt 9
 {
@@ -140,16 +143,17 @@ void PCA_ISR(void) __interrupt 9
 // Read_Heading
 //-----------------------------------------------------------------------------
 // 
-// Reads the compass heading and stores it as a variable
+// Reads the compass heading and stores it as a variable. Also prints all necessary
+// data for determining if the control algorithm functions properly
 //
 void Read_Heading()
 {
-	while (!new_heading);			//Waits until enough overflows for a new heading
-	heading = Read_Compass();
-	new_heading = 0;
+	while (!new_heading);		//Waits until enough overflows for a new heading
+	heading = Read_Compass();	//Read compass heading, store as variable heading
+	new_heading = 0;			//Lowers flag that must be raised before compass is read
 	if (read_counter >= 10)		//Only prints heading every tenth compass read
 	{
-		read_counter = 0;
+		read_counter = 0;		//Resets read counter
 		printf("Compass heading is: %d\r\n", heading);
 		printf("Desired heading is: %d\r\n", desired_heading);
 		printf("The error value is: %d\r\n", error);
@@ -178,13 +182,13 @@ void Set_PW()
 	}
 	error = (signed int)desired_heading - heading;	//Should allow error values between 3599 and -3599
 
-	//If the error is greater than +- 180 degrees, then error is set to explementary angle of original error
+	//If the error is greater abs(180) degrees, then error is set to explementary angle of original error
 	if (error > 1800)
 		error = error - 3599;
 	if (error < -1800)
 		error = 3599 + error;
 
-	SERVO_PW = .4*(error) + PW_CENTER;	//Should limit the change from PW_CENTER to 750
+	SERVO_PW = .416666*(error) + PW_CENTER;		//Limits the change from PW_CENTER to 750
 
 	//Additional precaution: if SERVO_PW somehow exceeds the limits set in Lab 3-1,
 	//then SERVO_PW is set to corresponding endpoint of PW range [PW_LEFT, PW_RIGHT]
@@ -192,7 +196,6 @@ void Set_PW()
 		SERVO_PW = PW_RIGHT;
 	if (SERVO_PW < PW_LEFT)
 		SERVO_PW = PW_LEFT;
-
 
 	//Sets CCM value that switches CEX to high; here it is set to a PW determined
 	//by the control algorithm
