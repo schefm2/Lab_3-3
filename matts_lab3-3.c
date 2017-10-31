@@ -150,8 +150,10 @@ void Read_Heading()
 	if (read_counter >= 10)		//Only prints heading every tenth compass read
 	{
 		read_counter = 0;
-		printf("Compass heading is:%d\r\n", heading);
-		printf("The error value is %d\r\n", error);
+		printf("Compass heading is: %d\r\n", heading);
+		printf("Desired heading is: %d\r\n", desired_heading);
+		printf("The error value is: %d\r\n", error);
+		printf("The servo pulse width is: %d\r\n", SERVO_PW);
 	}
 
 }
@@ -175,13 +177,6 @@ void Set_PW()
 		while(SS);
 	}
 	error = (signed int)desired_heading - heading;	//Should allow error values between 3599 and -3599
-	/*
-	if (error > 1800 || error < -1800)	//If the error is greater than 180 degrees in either direction
-	{
-		error &= 0x7FFF;		//Ensure error is positive
-		error = 3599 - error;	//Sets error to the explementary angle of original error
-	}
-	*/
 
 	//If the error is greater than +- 180 degrees, then error is set to explementary angle of original error
 	if (error > 1800)
