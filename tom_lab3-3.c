@@ -82,6 +82,7 @@ void main(void)
             //motor off
         {
             range = 45;
+            PW  = setCarSpeed(range);
         }
 
         //PW  = setCarSpeed(range);
