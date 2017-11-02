@@ -1,0 +1,419 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Lab 3-3: Steering Servo Task.
+The compass's version number is 16
+Compass heading is: 984
+Desired heading is: 0
+The error value is: -984
+The servo pulse width is: 2415
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 985
+Desired heading is: 0
+The error value is: -985
+The servo pulse width is: 2414
+Compass heading is: 965
+Desired heading is: 0
+The error value is: -965
+The servo pulse width is: 2422
+Compass heading is: 711
+Desired heading is: 0
+The error value is: -711
+The servo pulse width is: 2528
+Compass heading is: 461
+Desired heading is: 0
+The error value is: -461
+The servo pulse width is: 2632
+Compass heading is: 298
+Desired heading is: 0
+The error value is: -298
+The servo pulse width is: 2700
+Compass heading is: 196
+Desired heading is: 0
+The error value is: -196
+The servo pulse width is: 2743
+Compass heading is: 146
+Desired heading is: 0
+The error value is: -146
+The servo pulse width is: 2764
+Compass heading is: 117
+Desired heading is: 0
+The error value is: -117
+The servo pulse width is: 2776
+Compass heading is: 58
+Desired heading is: 0
+The error value is: -69
+The servo pulse width is: 2796
+Compass heading is: 28
+Desired heading is: 0
+The error value is: -34
+The servo pulse width is: 2810
+Compass heading is: 7
+Desired heading is: 0
+The error value is: -13
+The servo pulse width is: 2819
+Compass heading is: 3599
+Desired heading is: 0
+The error value is: 0
+The servo pulse width is: 2825
+Compass heading is: 3597
+Desired heading is: 0
+The error value is: -1
+The servo pulse width is: 2824
+Compass heading is: 3596
+Desired heading is: 0
+The error value is: 3
+The servo pulse width is: 2826
+Compass heading is: 3589
+Desired heading is: 0
+The error value is: 6
+The servo pulse width is: 2827
+Compass heading is: 3572
+Desired heading is: 0
+The error value is: 22
+The servo pulse width is: 2834
+Compass heading is: 3559
+Desired heading is: 0
+The error value is: 37
+The servo pulse width is: 2840
+Compass heading is: 3554
+Desired heading is: 0
+The error value is: 45
+The servo pulse width is: 2843
+Compass heading is: 3565
+Desired heading is: 0
+The error value is: 34
+The servo pulse width is: 2839
+Compass heading is: 3590
+Desired heading is: 0
+The error value is: 9
+The servo pulse width is: 2828
+Compass heading is: 3599
+Desired heading is: 0
+The error value is: 0
+The servo pulse width is: 2825
+Compass heading is: 12
+Desired heading is: 0
+The error value is: -12
+The servo pulse width is: 2820
+Compass heading is: 29
+Desired heading is: 0
+The error value is: -29
+The servo pulse width is: 2812
+Compass heading is: 18
+Desired heading is: 0
+The error value is: -18
+The servo pulse width is: 2817
+Compass heading is: 2
+Desired heading is: 0
+The error value is: -2
+The servo pulse width is: 2824
+Compass heading is: 3597
+Desired heading is: 0
+The error value is: 2
+The servo pulse width is: 2825
+Compass heading is: 3597
+Desired heading is: 0
+The error value is: 2
+The servo pulse width is: 2825
+Compass heading is: 3599
+Desired heading is: 0
+The error value is: 0
+The servo pulse width is: 2825
+Compass heading is: 3584
+Desired heading is: 0
+The error value is: 15
+The servo pulse width is: 2831
+Compass heading is: 3585
+Desired heading is: 0
+The error value is: 14
+The servo pulse width is: 2830
+Compass heading is: 3581
+Desired heading is: 0
+The error value is: 18
+The servo pulse width is: 2832
+Compass heading is: 3577
+Desired heading is: 0
+The error value is: 22
+The servo pulse width is: 2834
+Compass heading is: 3573
+Desired heading is: 0
+The error value is: 26
+The servo pulse width is: 2835
+Compass heading is: 3569
+Desired heading is: 0
+The error value is: 30
+The servo pulse width is: 2837
+Compass heading is: 3567
+Desired heading is: 0
+The error value is: 32
+The servo pulse width is: 2838
+Compass heading is: 3563
+Desired heading is: 0
+The error value is: 36
+The servo pulse width is: 2840
+Compass heading is: 3551
+Desired heading is: 0
+The error value is: 48
+The servo pulse width is: 2845
+Compass heading is: 3525
+Desired heading is: 0
+The error value is: 66
+The servo pulse width is: 2852
+Compass heading is: 3488
+Desired heading is: 0
+The error value is: 100
+The servo pulse width is: 2866
+Compass heading is: 3435
+Desired heading is: 0
+The error value is: 149
+The servo pulse width is: 2887
+Compass heading is: 3365
+Desired heading is: 0
+The error value is: 210
+The servo pulse width is: 2912
+Compass heading is: 3258
+Desired heading is: 0
+The error value is: 313
+The servo pulse width is: 2955
+Compass heading is: 3134
+Desired heading is: 0
+The error value is: 430
+The servo pulse width is: 3004
+Compass heading is: 3000
+Desired heading is: 0
+The error value is: 569
+The servo pulse width is: 3062
+Compass heading is: 2837
+Desired heading is: 0
+The error value is: 718
+The servo pulse width is: 3124
+Compass heading is: 2587
+Desired heading is: 0
+The error value is: 945
+The servo pulse width is: 3185
+Compass heading is: 2363
+Desired heading is: 0
+The error value is: 1186
+The servo pulse width is: 3185
+Compass heading is: 2174
+Desired heading is: 0
+The error value is: 1425
+The servo pulse width is: 3185
+Compass heading is: 2053
+Desired heading is: 0
+The error value is: 1546
+The servo pulse width is: 3185
+Compass heading is: 1943
+Desired heading is: 0
+The error value is: 1656
+The servo pulse width is: 3185
+Compass heading is: 1936
+Desired heading is: 0
+The error value is: 1663
+The servo pulse width is: 3185
+Compass heading is: 1929
+Desired heading is: 0
+The error value is: 1670
+The servo pulse width is: 3185
+Compass heading is: 1912
+Desired heading is: 0
+The error value is: 1687
+The servo pulse width is: 3185
+Compass heading is: 1938
+Desired heading is: 0
+The error value is: 1661
+The servo pulse width is: 3185
+Compass heading is: 1942
+Desired heading is: 0
+The error value is: 1657
+The servo pulse width is: 3185
+Compass heading is: 1941
+Desired heading is: 0
+The error value is: 1658
+The servo pulse width is: 3185
+Compass heading is: 1939
+Desired heading is: 0
+The error value is: 1660
+The servo pulse width is: 3185
+Compass heading is: 1853
+Desired heading is: 0
+The error value is: 1746
+The servo pulse width is: 3185
+Compass heading is: 1756
+Desired heading is: 0
+The error value is: -1756
+The servo pulse width is: 2395
+Compass heading is: 1766
+Desired heading is: 0
+The error value is: -1766
+The servo pulse width is: 2395
+Compass heading is: 1765
+Desired heading is: 0
+The error value is: -1765
+The servo pulse width is: 2395
+Compass heading is: 1766
+Desired heading is: 0
+The error value is: -1766
+The servo pulse width is: 2395
+Compass heading is: 1765
+Desired heading is: 0
+The error value is: -1763
+The servo pulse width is: 2395
+Compass heading is: 1770
+Desired heading is: 0
+The error value is: -1768
+The servo pulse width is: 2395
+Compass heading is: 1768
+Desired heading is: 0
+The error value is: -1768
+The servo pulse width is: 2395
+Compass heading is: 1767
+Desired heading is: 0
+The error value is: -1769
+The servo pulse width is: 2395
+Compass heading is: 1773
+Desired heading is: 0
+The error value is: -1770
+The servo pulse width is: 2395
+Compass heading is: 1776
+Desired heading is: 0
+The error value is: -1773
+The servo pulse width is: 2395
+Compass heading is: 1801
+Desired heading is: 0
+The error value is: -1793
+The servo pulse width is: 2395
+Compass heading is: 1852
+Desired heading is: 0
+The error value is: 1745
+The servo pulse width is: 3185
+Compass heading is: 1865
+Desired heading is: 0
+The error value is: 1737
+The servo pulse width is: 3185
+Compass heading is: 1947
+Desired heading is: 0
+The error value is: 1676
+The servo pulse width is: 3185
+Compass heading is: 1985
+Desired heading is: 0
+The error value is: 1616
+The servo pulse width is: 3185
+Compass heading is: 1902
+Desired heading is: 0
+The error value is: 1697
+The servo pulse width is: 3185
+Compass heading is: 1792
+Desired heading is: 0
+The error value is: -1792
+The servo pulse width is: 2395
+Compass heading is: 1776
+Desired heading is: 0
+The error value is: -1776
+The servo pulse width is: 2395
+Compass heading is: 1775
+Desired heading is: 0
+The error value is: -1775
+The servo pulse width is: 2395
+Compass heading is: 1774
+Desired heading is: 0
+The error value is: -1774
+The servo pulse width is: 2395
+Compass heading is: 3584
+Desired heading is: 0
+The error value is: 15
+The servo pulse width is: 2831
+Compass heading is: 3583
+Desired heading is: 0
+The error value is: 16
+The servo pulse width is: 2831
+Compass heading is: 3550
+Desired heading is: 0
+The error value is: 49
+The servo pulse width is: 2845
+Compass heading is: 3513
+Desired heading is: 0
+The error value is: 86
+The servo pulse width is: 2860
+Compass heading is: 3501
+Desired heading is: 0
+The error value is: 98
+The servo pulse width is: 2865
+Compass heading is: 3503
+Desired heading is: 0
+The error value is: 96
+The servo pulse width is: 2865
+Compass heading is: 3548
+Desired heading is: 0
+The error value is: 51
+The servo pulse width is: 2846
+Compass heading is: 3598
+Desired heading is: 0
+The error value is: 0
+The servo pulse width is: 2825
+Compass heading is: 3588
+Desired heading is: 0
+The error value is: 10
+The servo pulse width is: 2829
+Compass heading is: 3591
+Desired heading is: 0
+The error value is: 10
+The servo pulse width is: 2829
+Compass heading is: 3594
+Desired heading is: 0
+The error value is: 8
+The servo pulse width is: 2828
+Compass heading is: 3595
+Desired heading is: 0
+The error value is: 5
+The servo pulse width is: 2827
