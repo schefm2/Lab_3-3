@@ -1,0 +1,131 @@
+Psuedocode
+
+compiler directives
+	#include <c8051_SDCC.h>
+	#include <stdio.h>
+    #include <i2c.h>
+
+declare global vars
+	unsigned int LED_PW = 0;
+	unsigned int min_max_val = 0;
+	unsigned int PW_MIN =1000;
+	unsigned int PW_MAX =36700;
+	unsigned int PW_NEUT =18432;
+	unsigned char addr=0xE0; // the address of the ranger is 0xE0
+	unsigned char Data[2];
+    unsigned char r_count=0;
+	unsigned char light;
+
+function prototypes
+    void Port_Init(void);
+	void Interrupt_Init(void);
+    void PCA_Init(void);
+	void XBR0_Init(void);
+	void PCA_ISR(void) __interrupt 9;
+    void SMB_Init(void);
+
+    void readUSRanger(void);
+
+sbits
+	Set slide switch to port 3 pin 5 
+
+main
+
+	// initialize board
+	Sys_Init();
+	putchar(' '); //the quotes in this line may not format correctly
+	Port_Init();
+	XBR0_Init();
+	Interrupt_Init();
+	PCA_Init();
+	SMB_Init();
+
+	
+	print beginning message
+	light led to neutral
+
+	ask user to set brightest point
+	run min max function
+	set min pulse width
+
+	ask user to set dimmest point
+	run min max function
+	set max pulse width
+
+	while(1)
+
+		wait for slideswitch to be on
+		every 80 ms
+			r_count=0;
+			check light level
+			print light level
+			ping ranger
+
+			if light<=40
+				light LED to brightest
+
+			if light>=215
+				light LED to dimmest
+			
+			if light >40 and < 215
+				linear light percentage of 40-215 range and dim-bright LED
+end main
+
+LED_Brightness Function
+
+	wait for a key to be pressed
+
+	if '9' is pressed by the user
+		increase the led pulsewidth by 200
+
+	if '0' is pressed by the user
+		decrease the led pulsewidth by 200
+
+	if '=' is pressed by the user
+		set min or max value
+
+	print the pulse width
+	set LED to said pulse width
+
+Min_Max Function
+	clear min max state set
+	while state set is 0 (gets set to other when equals is pressed
+		LED_Brightness();
+
+
+Port_Init()
+	set output pin for CEX2 in push-pull mode
+	Pin 3.5 open drain
+	Pin 3.5 high impedance
+	
+	XBR0_Init
+		Configure crossbar to use UART0, SPI, SMBus, and up to CEX3
+	End XBR0_Init
+	
+	PCA_Init
+		Enable CF interrupt and SYSCLK/12 on PCA0
+		Put CCM0 in 16-bit compare mode, enable PWM on PCA0CPM0
+		Enable PCA0 counter with PCA0CN
+		Enable PCA interrupt in EIE1
+		Enable global interrupt with EA
+	End PCA_Init
+	
+	PCA_ISR
+		if CF flag is raised
+			Lower CF flag
+			Set PCA0 starting value for 20 ms pulses
+            r_ct incremented
+		Handle other PCA0 interrupt sources with PCA0CN
+	End PCA_ISR
+
+    SMB_Init
+        SMB0CR = 0x93
+        ENSMB = 1
+    End SMB_Init
+
+    readUSRanger
+        read range
+        write 0x81 to ranger (location: 0xE0) to get ranging mode in cm
+        print range
+        set r_ct = 0 (80 ms flag)
+    end readUSRanger
